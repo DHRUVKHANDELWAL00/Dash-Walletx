@@ -8,22 +8,21 @@ import {
 const Wallet = (props) => {
   const {createWallet,removeSolanaWallet,publicKey,setPublicKey} = props;
   const [connection,setConnection]=useState(null);
-  const [balances,setBalances]=useState([]);
-  useEffect(() => {
-    const newConnection = new Connection(
-      "https://solana-mainnet.g.alchemy.com/v2/bRBok_WQTH1a5uRBwem7hn-TD7-rgGJK"
-    );
-    setConnection(newConnection);
-  }, []);
-  const getBalance = async (item) => {
-  try {
-    const publicKeyObj = new PublicKey(item);
-    const newBalance = await connection?.getBalance(publicKeyObj) ?? 0;
-    setBalances([...balances, newBalance / LAMPORTS_PER_SOL]);
-  } catch (error) {
-    console.error("Error getting balance:", error);
-  }
-};
+  // const [balance,setBalance]=useState(0);
+  
+//   const getBalance = async (item) => {
+//   try {
+    
+//     const publicKeyObj = new PublicKey(item.publickey);
+//     const newBalance = await connection?.getBalance(publicKeyObj) ?? 0;
+//     const balances=newBalance / LAMPORTS_PER_SOL;
+//     item['balances']=balances;
+//     setBalance(balances)
+//     console.log(item)
+//   } catch (error) {
+//     console.error("Error getting balance:", error);
+//   }
+// };
   return (
     <div className="flex flex-col justify-between items-center pb-16">
         <button onClick={createWallet} className="btn btn-outline">Create Solana Wallet</button>
@@ -32,10 +31,11 @@ const Wallet = (props) => {
         <>
         {publicKey.map((item,index)=>{
           return(
-            <div key={index}>
-              <h1>{item}</h1>
-              {balances? <>{balances}</>:<>Loading...</>}
-              <button onClick={()=>getBalance(item)} className="btn btn-outline">Get Balance</button>
+            <div key={index} className='flex flex-col items-center justify-center p-6'>
+              <h1>{item.publickey}</h1>
+              <h1>Balance:{item.balances}</h1>
+
+              {/* <button onClick={()=>getBalance(item)} className="btn btn-outline mt-6">Get Balance</button> */}
             </div>
           )
         })}
