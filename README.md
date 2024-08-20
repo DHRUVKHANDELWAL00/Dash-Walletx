@@ -1,7 +1,7 @@
-## DASHx- A WEB BASED WALLET
--Create Solana and Ethereum Wallets
--Send Transaction Functionality
--Solana Airdrop Functionality
+## DASHx- A WEB BASED WALLET:
+-Create Solana and Ethereum Wallets.
+-Send Transaction Functionality.
+-Solana Airdrop Functionality.
 -Pushing it as Extension Soon!!!!!!!!!!!!!!!
 
 
