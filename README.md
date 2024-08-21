@@ -1,3 +1,14 @@
+## DASHx- A WEB BASED WALLET:
+-Create Solana and Ethereum Wallets.
+-Send Transaction Functionality.
+-Solana Airdrop Functionality.
+-Pushing it as Extension Soon!!!!!!!!!!!!!!!
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
