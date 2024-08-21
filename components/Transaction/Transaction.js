@@ -1,13 +1,14 @@
 'use client'
 import React,{useState,useEffect} from 'react'
 import {Connection,PublicKey, LAMPORTS_PER_SOL} from '@solana/web3.js'
-const Airdrop = () => {
-    const [publickey,setPublickkey]=useState('');
-    const [data,setData]=useState([]);
+const Transaction = () => {
+    const [senderpublickey,setSenderpublickkey]=useState('');
+    const [recieverpublickey,setRecieverpublickkey]=useState('');
+    // const [data,setData]=useState([]);
     const [connection,setConnection]=useState('');
-    const [balance,setBalance]=useState(0);
-    const [isValid,setIsValid]=useState(true);
-    const [airdropamt,setAirdropamt]=useState(0);
+    const [amt,setAmt]=useState(0);
+    // const [isValid,setIsValid]=useState(true);
+    // const [airdropamt,setAirdropamt]=useState(0);
 
 
 
@@ -19,11 +20,15 @@ const Airdrop = () => {
 
     const handleChange=(e)=>{
         console.log(e.target.value);
-        setPublickkey(e.target.value);
+        setSenderpublickkey(e.target.value);
+    }
+    const handleChange2=(e)=>{
+        console.log(e.target.value);
+        setRecieverpublickkey(e.target.value);
     }
      const handleOptionChange=(e)=>{
-        console.log(e.target.value);
-        setAirdropamt(e.target.value*LAMPORTS_PER_SOL);
+        console.log(e.target.value*LAMPORTS_PER_SOL);
+        setAmt(e.target.value*LAMPORTS_PER_SOL);
     }
 
 
@@ -32,8 +37,8 @@ const Airdrop = () => {
          const publicKeyObj = new PublicKey(publickey);
         console.log('submiited')
 
-const newBalance = await connection?.requestAirdrop?.(publicKeyObj, airdropamt) ?? 0;
-        console.log("done, success")
+// const newBalance = await connection?.requestAirdrop?.(publicKeyObj, airdropamt) ?? 0;
+//         console.log("done, success")
         // const isValidHash=await connection?.isBlockhashValid(publicKeyObj) ?? 0;
         // setIsValid(isValidHash.value);
         // console.log(isValidHash.value);
@@ -48,8 +53,12 @@ const newBalance = await connection?.requestAirdrop?.(publicKeyObj, airdropamt) 
             <div className="flex flex-col mt-0 items-center gap-6">
                 <input
   type="text"
-  placeholder="Enter Public Key"
+  placeholder="Enter Your Address"
   className="input input-bordered input-primary w-full text-black" onChange={handleChange} />
+  <input
+  type="text"
+  placeholder="Enter Reciever's Address"
+  className="input input-bordered input-primary w-full text-black" onChange={handleChange2} />
   <select className="select select-primary w-full max-w-xs text-black"  onChange={handleOptionChange} >
   <option disabled selected>Select Amount</option>
   <option>0.5</option>
@@ -57,7 +66,7 @@ const newBalance = await connection?.requestAirdrop?.(publicKeyObj, airdropamt) 
   <option>1.5</option>
   <option>2</option>
 </select>
-  <button className="btn btn-outline btn-primary" onClick={handleSubmit}>Request Airdrop</button>
+  <button className="btn btn-outline btn-primary" onClick={handleSubmit}>Send Money</button>
 
             </div>
         </form>
@@ -68,6 +77,6 @@ const newBalance = await connection?.requestAirdrop?.(publicKeyObj, airdropamt) 
 
 
 
-export default Airdrop
+export default Transaction
 
 
