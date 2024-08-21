@@ -2,9 +2,10 @@ import React from 'react'
 
 const Mnemonic = (props) => {
   const {mnemonic,setMnemonic,handleClick}=props;
+
   return (
     <div className="flex flex-col justify-between items-center pt-16 pb-16">
-        <button onClick={handleClick} className="btn btn-outline">Generate Mnemonic</button>
+        <button onClick={handleClick} className="btn btn-outline">Create Phrase</button>
         {
           mnemonic.length>0 ? 
                     <>

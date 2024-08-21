@@ -1,9 +1,6 @@
 'use client'
-import React from 'react'
-import Input from "@/components/Explorer/Input";
 import Navbar from "@/components/Navbar";
-import History from "@/components/Explorer/History";
-import Image from "next/image";
+import Airdrop from '@/components/Airdrop/Airdrop';
 
 const page = () => {
   const handleClick = () => {
@@ -12,12 +9,10 @@ const page = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-between p-24">
       <Navbar/>
-      <Input/>
-      <History/>
+      <Airdrop/>
 
     </div>
   )
 }
 
 export default page
-
